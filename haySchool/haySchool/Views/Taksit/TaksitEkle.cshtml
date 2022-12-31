@@ -1,0 +1,38 @@
+﻿@model haySchool.Models.Taksit
+
+@{
+    ViewData["Title"] = "TaksitEkle";
+}
+
+
+<div class="form-group">
+   
+        <form asp-action="TaksitEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+         
+                 Ödeme ID
+                @Html.DropDownListFor(x=>x.taksit_odeme_id, (List<SelectListItem>)ViewBag.v21,new{@class="form-control"})
+                <span asp-validation-for="taksit_odeme_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Taksit Tarihi
+                <input asp-for="taksit_tarih" class="form-control" />
+                <span asp-validation-for="taksit_tarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+             Tutar
+                <input asp-for="taksit_tutar" class="form-control" />
+                <span asp-validation-for="taksit_tutar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

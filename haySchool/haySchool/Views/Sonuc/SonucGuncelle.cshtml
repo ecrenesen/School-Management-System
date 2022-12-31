@@ -1,0 +1,54 @@
+﻿@model haySchool.Models.Sonuc
+
+@{
+    ViewData["Title"] = "SonucGuncelle";
+}
+
+<hr />
+<div class="form-group">
+  
+        <form asp-action="SonucGuncelle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="sonuc_id" class="control-label"></label>
+                <input asp-for="sonuc_id" class="form-control" />
+                <span asp-validation-for="sonuc_id" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                Sınav 
+                 @Html.DropDownListFor(x=>x.sonuc_sinav_id, (List<SelectListItem>)ViewBag.v21,new{@class="form-control"})
+                <span asp-validation-for="sonuc_sinav_id" class="text-danger"></span>
+            </div>
+
+          
+
+            <div class="form-group">
+               Öğrenci 
+                 @Html.DropDownListFor(x=>x.sonuc_ogrenci_id, (List<SelectListItem>)ViewBag.v25,new{@class="form-control"})
+                <span asp-validation-for="sonuc_ogrenci_id" class="text-danger"></span>
+            </div>
+
+  
+            <div class="form-group">
+              Puan
+                <input asp-for="sonuc_puan" class="form-control" />
+                <span asp-validation-for="sonuc_puan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Ders 
+               @Html.DropDownListFor(x=>x.sonuc_ders_id, (List<SelectListItem>)ViewBag.v26,new{@class="form-control"})
+                <span asp-validation-for="sonuc_ders_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

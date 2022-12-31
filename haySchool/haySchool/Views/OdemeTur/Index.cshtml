@@ -1,0 +1,36 @@
+﻿@model IEnumerable<haySchool.Models.OdemeTur>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+           @* <th>
+                ID
+            </th>*@
+            <th>
+               Tür
+            </th>
+             <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+         @*   <td>
+                @Html.DisplayFor(modelItem => item.odemetur_id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.odemetur_adi)
+        
+            </td>
+           <td><a href="/OdemeTur/OdemeTurSil/@item.odemetur_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/OdemeTur/OdemeTurGuncelle/@item.odemetur_id" class="btn btn-success">Update</a></td>
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/OdemeTur/OdemeTurEkle" class="btn btn-primary">Yeni Ödeme Türü Oluştur</a>

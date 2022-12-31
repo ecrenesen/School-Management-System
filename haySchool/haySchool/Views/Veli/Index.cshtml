@@ -1,0 +1,56 @@
+﻿@model IEnumerable<haySchool.Models.Veli>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Veli ID
+            </th>
+            <th>
+               Veli Adı
+            </th>
+            <th>
+                Veli Soyadı
+            </th>
+            <th>
+              Veli Soyadı
+            </th>
+            <th>
+                Veli Adres
+            </th>
+           
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.veli_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.veli_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.veli_soyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.veli_telno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.veli_adres)
+            </td>
+           <td><a href="/Veli/VeliSil/@item.veli_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Veli/VeliGuncelle?id=@item.veli_id" class="btn btn-success">Update</a></td>
+            
+          
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/Veli/VeliEkle" class="btn btn-primary">Yeni Veli Ekle</a>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<haySchool.Models.Ogrenci>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+               Öğrenci TC
+            </th>
+            <th>
+               Öğrenci Adı
+            </th>
+            <th>
+            Öğrenci Soyadı
+            </th>
+       
+            <th>
+             Öğrenci Sınıf Adı
+            </th>
+     
+            <th>
+                Öğrenci Veli Adı
+            </th>
+            <th>
+                Kayıt Tarihi
+            </th>
+            <th></th>
+                  <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_tcno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_soyadi)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_sinif_adi)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_veli_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_kayit_tarihi)
+            </td>
+          
+           <td><a href="/Ogrenci/OgrenciSil/@item.ogrenci_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Ogrenci/OgrenciGuncelle/@item.ogrenci_id" class="btn btn-success">Update</a></td>
+      
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/Ogrenci/OgrenciEkle" class="btn btn-primary">Yeni Ogrenci Ekle</a>

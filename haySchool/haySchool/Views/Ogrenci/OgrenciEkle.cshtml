@@ -1,0 +1,61 @@
+﻿@model haySchool.Models.Ogrenci
+
+@{
+    ViewData["Title"] = "OgrenciEkle";
+}
+
+
+<hr />
+<div class="form-group">
+  
+        <form asp-action="OgrenciEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+               TC
+                <input asp-for="ogrenci_tcno" class="form-control" />
+                <span asp-validation-for="ogrenci_tcno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Öğrenci Adı
+                <input asp-for="ogrenci_adi" class="form-control" />
+                <span asp-validation-for="ogrenci_adi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              Öğrenci Soyadı
+                <input asp-for="ogrenci_soyadi" class="form-control" />
+                <span asp-validation-for="ogrenci_soyadi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Sınıf ID
+              @*  <input asp-for="ogrenci_sinif_id" class="form-control" />*@
+               @Html.DropDownListFor(x=>x.ogrenci_sinif_id, (List<SelectListItem>)ViewBag.v4,new{@class="form-control"})
+                <span asp-validation-for="ogrenci_sinif_id" class="text-danger"></span>
+            </div>
+       
+         
+            <div class="form-group">
+               Veli ID
+               @* <input asp-for="ogrenci_veli_id" class="form-control" />*@
+                @Html.DropDownListFor(x=>x.ogrenci_veli_id, (List<SelectListItem>)ViewBag.v5,new{@class="form-control"})
+                <span asp-validation-for="ogrenci_veli_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Kayıt Tarihi
+                <input asp-for="ogrenci_kayit_tarihi" class="form-control" />
+                <span asp-validation-for="ogrenci_kayit_tarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

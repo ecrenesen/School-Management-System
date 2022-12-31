@@ -1,0 +1,46 @@
+﻿@model IEnumerable<haySchool.Models.Taksit>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+              Ödeme ID
+            </th>
+            <th>
+                Taksit Tarih
+            </th>
+            <th>
+              Taksit Tutar
+            </th>
+            <th></th>
+            <th> </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.taksit_odeme_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.taksit_tarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.taksit_tutar)
+            </td>
+
+           <td><a href="/Taksit/TaksitSil/@item.taksit_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Taksit/TaksitGuncelle/@item.taksit_id" class="btn btn-success">Update</a></td>
+         
+        </tr>
+}
+    </tbody>
+</table>

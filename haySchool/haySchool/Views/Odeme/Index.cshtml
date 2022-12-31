@@ -1,0 +1,67 @@
+﻿@model IEnumerable<haySchool.Models.Odeme>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+              Ödeme Türü
+            </th>
+            <th>
+                Toplam Ödeme
+            </th>
+            <th>
+                Ödenen
+            </th>
+            <th>
+                Kalan
+            </th>
+            <th>
+                İndirim
+            </th>
+             <th>
+                Veli Adı
+            </th>
+             <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.odeme_id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.odeme_odemetur_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.odeme_toplam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.odeme_odenen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.odeme_kalan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.odeme_indirim)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.odeme_veli_adi)
+            </td>
+           <td><a href="/Odeme/OdemeSil/@item.odeme_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Odeme/OdemeGuncelle?id=@item.odeme_id" class="btn btn-success">Update</a></td>
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/Odeme/OdemeEkle" class="btn btn-primary">Yeni Ödeme Ekle</a>

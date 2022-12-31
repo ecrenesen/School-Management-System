@@ -1,0 +1,47 @@
+﻿@model IEnumerable<haySchool.Models.Devamsizlik>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+               Öğrenci
+            </th>
+            <th>
+                Devamsızlık Miktarı
+            </th>
+            <th>Tarih</th>
+            <th></th>
+   
+           
+ 
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.devamsizlik_ogrenci_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.devamsizlik_miktar)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.devamsizlik_tarih)
+            </td>
+                       <td><a href="/Devamsizlik/DevamsizlikSil/@item.devamsizlik_id" class="btn btn-danger">Sil</a></td>
+
+            <td><a href="/Devamsizlik/DevamsizlikGuncelle/@item.devamsizlik_id" class="btn btn-success">Güncelle</a></td>
+           
+            
+        </tr>
+}
+    </tbody>
+</table>

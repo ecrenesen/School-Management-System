@@ -1,0 +1,62 @@
+﻿@model haySchool.Models.Odeme
+
+@{
+    ViewData["Title"] = "OdemeGuncelle";
+}
+
+
+<hr />
+<div class="form-group">
+    
+        <form asp-action="OdemeGuncelle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="odeme_id" class="control-label"></label>
+                <input asp-for="odeme_id" class="form-control" />
+                <span asp-validation-for="odeme_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Ödeme Türü
+                 @Html.DropDownListFor(x=>x.odeme_odemetur_id, (List<SelectListItem>)ViewBag.v20,new{@class="form-control"})
+                <span asp-validation-for="odeme_odemetur_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Toplam Ödenecek Miktar
+                <input asp-for="odeme_toplam" class="form-control" />
+                <span asp-validation-for="odeme_toplam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+             Ödenen Miktar
+                <input asp-for="odeme_odenen" class="form-control" />
+                <span asp-validation-for="odeme_odenen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Kalan Ödeme
+                <input asp-for="odeme_kalan" class="form-control" />
+                <span asp-validation-for="odeme_kalan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Yapılan İndirim
+                <input asp-for="odeme_indirim" class="form-control" />
+                <span asp-validation-for="odeme_indirim" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+        Veli
+          @Html.DropDownListFor(x=>x.odeme_veli_id, (List<SelectListItem>)ViewBag.v5,new{@class="form-control"})
+            <span asp-validation-for="odeme_veli_id" class="text-danger"></span>
+        </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

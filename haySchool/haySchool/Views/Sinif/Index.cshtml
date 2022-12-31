@@ -1,0 +1,138 @@
+﻿@model IEnumerable<haySchool.Models.Sinif>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.sidenav {
+    margin-top:93px;
+  height: 100%;
+  width: 0; /*Genişliği javascriptle değiştir*/
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+            background: background: rgb(2,0,36);
+            background-color:lightgrey; 
+            
+  overflow-x: hidden; /*Yatay kaydırmayı devre dışı bırak */
+  transition: 0.5s;/* Sidenav'da kaymaya 0,5 saniye geçiş efekti */
+  padding-top: 60px; /*İçeriği üstten 60 piksel yerleştirin */
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 40px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+/*Menüler üzerine gelince  renklerini değiştirin */
+
+.sidenav a:hover {
+  color: royalblue; 
+}
+/*Kapat düğmesini konumlandırın ve stillendirin (sağ üst köşe) */
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+/* Yüksekliğin 450 pikselden az olduğu daha küçük ekranlarda, 
+sidenav stilini değiştirin 
+(daha az dolgu ve daha küçük bir yazı tipi boyutu) */
+
+
+</style>
+</head>
+<body>
+
+<div id="YanMenu" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+
+  &times;</a>
+
+        
+            @foreach (var item in Model)
+            {
+            <a href="/Ogrenci/ogrList/@item.sinif_id" class="btn btn-secondary">
+                        @Html.DisplayFor(modelItem => item.sinif_sube)
+           
+                    
+                   
+              </a>
+               
+            }
+<a href="/Sinif/SinifEkle" class="btn btn-warning">Yeni Sınıf</a>
+</div>
+
+
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">
+&#9776; 
+</span>
+
+<!-- javascript ile menuyu açma kapatma -->
+
+<script>
+function openNav() {
+  document.getElementById("YanMenu").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("YanMenu").style.width = "0";
+}
+</script>
+   
+</body>
+</html>
+
+
+<table class="table">
+    
+        <tr>
+         
+            <th>
+              
+                Şube Kodu
+            </th>
+            <th>
+                Sınıf Öğretmeni
+            </th>
+            <th>
+                Mevcut
+            </th>
+
+            <th></th>
+            <th></th>
+            
+        </tr>
+    
+ 
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.sinif_sube)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sinif_ogretmen_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sinif_mevcut)
+            </td>
+           
+           <td><a href="/Sinif/SinifSil/@item.sinif_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Sinif/SinifGuncelle/@item.sinif_id" class="btn btn-success">Update</a></td>
+        </tr>
+}
+
+</table>

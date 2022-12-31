@@ -1,0 +1,47 @@
+﻿@model haySchool.Models.Veli
+
+@{
+    ViewData["Title"] = "VeliGuncelle";
+}
+
+<hr />
+<div class="form-group">
+   
+        <form asp-action="VeliGuncelle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Veli ID
+                <input asp-for="veli_id" class="form-control" />
+                <span asp-validation-for="veli_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              Veli Adı
+                <input asp-for="veli_adi" class="form-control" />
+                <span asp-validation-for="veli_adi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+             Veli soyadı
+                <input asp-for="veli_soyadi" class="form-control" />
+                <span asp-validation-for="veli_soyadi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Veli Telefon Numarası
+                <input asp-for="veli_telno" class="form-control" />
+                <span asp-validation-for="veli_telno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Veli Adres
+                <input asp-for="veli_adres" class="form-control" />
+                <span asp-validation-for="veli_adres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

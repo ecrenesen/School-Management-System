@@ -1,0 +1,48 @@
+﻿@model haySchool.Models.Ogretmen
+
+@{
+    ViewData["Title"] = "OgretmenGuncelle";
+}
+
+
+<hr />
+<div class="form-group">
+    
+        <form asp-action="OgretmenGuncelle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Ogretmen
+                <input asp-for="ogretmen_id" class="form-control" />
+                <span asp-validation-for="ogretmen_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Ders
+              @Html.DropDownListFor(x=>x.ogretmen_ders_id, (List<SelectListItem>)ViewBag.v21,new{@class="form-control"})
+                <span asp-validation-for="ogretmen_ders_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Öğretmen Adı
+                <input asp-for="ogretmen_adi" class="form-control" />
+                <span asp-validation-for="ogretmen_adi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Öğretmen Soyadı
+                <input asp-for="ogretmen_soyadi" class="form-control" />
+                <span asp-validation-for="ogretmen_soyadi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Öğretmen TelNo
+                <input asp-for="ogretmen_telno" class="form-control" />
+                <span asp-validation-for="ogretmen_telno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit"  href="~/Views/Privacy.cshtml" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+   
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

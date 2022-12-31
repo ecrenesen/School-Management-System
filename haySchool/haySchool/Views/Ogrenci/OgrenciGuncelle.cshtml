@@ -1,0 +1,68 @@
+﻿@model haySchool.Models.Ogrenci
+
+@{
+    ViewData["Title"] = "OgrenciGuncelle";
+}
+
+
+
+<hr />
+<div class="form-group">
+  
+        <form asp-action="OgrenciGuncelle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+             Öğrenci ID
+                <input asp-for="ogrenci_id" class="form-control" />
+                <span asp-validation-for="ogrenci_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+             Öğrenci TC
+                <input asp-for="ogrenci_tcno" class="form-control" />
+                <span asp-validation-for="ogrenci_tcno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            Öğrenci Adı
+                <input asp-for="ogrenci_adi" class="form-control" />
+                <span asp-validation-for="ogrenci_adi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+         Öğrenci Soyadı
+                <input asp-for="ogrenci_soyadi" class="form-control" />
+                <span asp-validation-for="ogrenci_soyadi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              Sınıf ID
+               @Html.DropDownListFor(x=>x.ogrenci_sinif_id, (List<SelectListItem>)ViewBag.v15,new{@class="form-control"})
+                <span asp-validation-for="ogrenci_sinif_id" class="text-danger"></span>
+            </div>
+           @* <div class="form-group">
+               Sınıf Adı
+                <input asp-for="ogrenci_sinif_adi" class="form-control" />
+                <span asp-validation-for="ogrenci_sinif_adi" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+               Veli ID
+                @Html.DropDownListFor(x=>x.ogrenci_veli_id, (List<SelectListItem>)ViewBag.v17,new{@class="form-control"})
+                <span asp-validation-for="ogrenci_veli_id" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+               Öğrenci Kayıt Tarihi
+                <input asp-for="ogrenci_kayit_tarihi" class="form-control" />
+                <span asp-validation-for="ogrenci_kayit_tarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

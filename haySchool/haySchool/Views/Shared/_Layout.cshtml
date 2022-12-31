@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - haySchool</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body style="background-color: whitesmoke;">
+	<p></p>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,117,121,1) 39%, rgba(4,119,193,1) 72%, rgba(3,139,206,1) 78%, rgba(2,156,217,1) 83%, rgba(2,166,224,1) 86%, rgba(93,192,212,1) 100%);  ">
+			<div class="container">
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" style="background-color:#aec9cf;"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+					<ul class="navbar-nav flex-grow-1" style="padding-top:5px; font-size:larger;">
+						<li class="nav-item">
+							<a class="nav-link text-light"style="color:white; height:55px; font-family:'Lucida Handwriting'; padding-top:8px; font-size:x-large;" asp-area="" asp-controller="Home" asp-action="Index">haySchool</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-controller="Sinif" asp-action="Index">Sınıflar</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-controller="Ders" asp-action="Index">Dersler</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-controller="Ogrenci" asp-action="Index">Öğrenciler</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-controller="Veli" asp-action="Index">Veliler</a>
+						</li>
+						@*<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-controller="Taksit" asp-action="Index">Taksitler</a>
+						</li>*@
+					
+						@*------------------------*@
+						@*<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  Sınıflar
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						  <a class="dropdown-item" asp-controller="Sinif" asp-action="Index">101</a>
+						 
+						  <a class="dropdown-item" href="#">Another action</a>
+						  <div class="dropdown-divider"></div>
+						  <a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					  </li>*@
+					  @*---------------------------------*@
+
+					@*	<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-controller="Ogretmen" asp-action="Index">Öğretmenler</a>
+						</li>*@
+						@*<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-controller="Sinav" asp-action="Index">Sınavlar</a>
+						</li>*@
+						@*<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-controller="Etut" asp-action="Index">Etütler</a>
+						</li>*@
+
+					@*	<li class="nav-item">
+							<a class="nav-link text-light" asp-area="" asp-controller="Odeme" asp-action="Index">Ödemeler</a>
+						</li>*@
+
+						<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  Ödeme İşlemleri
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						 
+						 
+						  <a class="dropdown-item" href="/Odeme/Index">Ödemeler</a>
+						  <a class="dropdown-item" href="/OdemeTur/Index">Ödeme Türleri</a>
+						
+						</div>
+					  </li>
+
+
+					  	<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  Sınav/Sonuç/Etüt
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						 
+						 
+						  <a class="dropdown-item" href="/Sinav/Index">Sınav İşlemleri</a>
+						  <a class="dropdown-item" href="/Sonuc/Index">Sonuç İşlemleri</a>
+						  <a class="dropdown-item" href="/Etut/Index">Etüt İşlemleri</a>
+						
+						</div>
+					  </li>
+						
+
+					
+						<div class="collapse navbar-collapse justify-content-end ">
+							<ul class="nav navbar-nav ">
+
+								<li class="nav-item dropdown">
+									<a class="nav-link " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+										<img src="~/farmerwom.png" style="weight:40px; height:40px" />
+									</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<a class="dropdown-item" href="#">Action</a>
+										<a class="dropdown-item" href="#">Another action</a>
+										<a class="dropdown-item" href="#">Something else here</a>
+									</div>
+
+								</li>
+
+
+
+							</ul>
+						</div>
+
+
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer text-muted">
+		<div class="container">
+            &copy; 2022 haySchool - <a asp-area="" asp-controller="Home" asp-action="Privacy" style="color:saddlebrown;">EcrenEsen&BerfinDalar</a>
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<haySchool.Models.Sonuc>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.sonuc_id)
+            </th>*@
+           
+         
+            <th>
+             Sınavın Adı
+            </th>
+            <th>Öğrencinin Adı</th>
+         
+            <th>
+           Puan
+            </th>
+           
+            <th></th>
+            <th></th>
+            <th></th>
+   
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          @*  <td>
+                @Html.DisplayFor(modelItem => item.sonuc_id)
+            </td>*@
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.sonuc_sinav_adi)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.sonuc_ogrenci_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sonuc_puan)
+            </td>
+         
+           <td><a href="/Sonuc/SonucSil/@item.sonuc_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Sonuc/SonucGuncelle/@item.sonuc_id" class="btn btn-success">Update</a></td>
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/Sonuc/SonucEkle" class="btn btn-primary">Sonuç Gir</a>

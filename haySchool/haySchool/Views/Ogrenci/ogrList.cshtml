@@ -1,0 +1,68 @@
+﻿@model IEnumerable<haySchool.Models.Ogrenci>
+
+@{
+    ViewData["Title"] = "ogrList";
+}
+
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Öğrenci ID
+            </th>
+            <th>
+               TC
+            </th>
+            <th>
+                 Adı
+            </th>
+            <th>
+                 Soyadı
+            </th>
+         
+              <th>
+                 Devamsızlık
+            </th>
+         
+            <th>
+                 Kayıt Tarihi
+            </th>
+              
+         
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_tcno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_soyadi)
+            </td>
+         <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_devamsizlik)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci_kayit_tarihi)
+            </td>
+        
+        </tr>
+}
+    </tbody>
+</table>
+<td><a href="/Sinif/Index" class="btn btn-success">Sınıflara Geri Dön </a></td>

@@ -1,0 +1,49 @@
+﻿@model haySchool.Models.Sinav
+
+@{
+    ViewData["Title"] = "SinavGuncelle";
+}
+
+
+<hr />
+<div class="form-group">
+    
+        <form asp-action="SinavGuncelle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                ID
+                <input asp-for="sinav_id" class="form-control" />
+                <span asp-validation-for="sinav_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Ders 
+              @Html.DropDownListFor(x=>x.sinav_ders_id, (List<SelectListItem>)ViewBag.v21,new{@class="form-control"})
+                <span asp-validation-for="sinav_ders_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Sınıf 
+                @Html.DropDownListFor(x=>x.sinav_sinif_id, (List<SelectListItem>)ViewBag.v22,new{@class="form-control"})
+                <span asp-validation-for="sinav_sinif_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Tarih
+                <input asp-for="sinav_date" class="form-control" />
+                <span asp-validation-for="sinav_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Ogretmen
+             @Html.DropDownListFor(x=>x.sinav_ogretmen_id, (List<SelectListItem>)ViewBag.v23,new{@class="form-control"})
+                <span asp-validation-for="sinav_ogretmen_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

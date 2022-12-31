@@ -1,0 +1,42 @@
+﻿@model haySchool.Models.Sinif
+
+@{
+    ViewData["Title"] = "SinifEkle";
+}
+
+<hr />
+<div class="form class-group">
+    
+        <form asp-action="SinifEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+       @*     <div class="form-group">
+               ID
+                <input asp-for="sinif_id" class="form-control" />
+                <span asp-validation-for="sinif_id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                Şube
+                <input asp-for="sinif_sube" class="form-control" />
+                <span asp-validation-for="sinif_sube" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Öğretmen ID
+                 @Html.DropDownListFor(x=>x.sinif_ogretmen_id, (List<SelectListItem>)ViewBag.v2,new{@class="form-control"})
+                <span asp-validation-for="sinif_ogretmen_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Mevcut
+                <input asp-for="sinif_mevcut" class="form-control" />
+                <span asp-validation-for="sinif_mevcut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

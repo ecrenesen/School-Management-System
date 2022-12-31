@@ -1,0 +1,54 @@
+﻿@model IEnumerable<haySchool.Models.Etut>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+          @*  <th>
+                ID
+            </th>*@
+            <th>
+                Öğrenci ID
+            </th>
+            <th>
+                Ders ID
+            </th>
+            <th>
+               Sınav ID
+            </th>
+           
+             <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+        @*    <td>
+                @Html.DisplayFor(modelItem => item.etut_id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.etut_ogrenci_adi)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.etut_ders_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.etut_sinav_id)
+            </td>
+          
+           <td><a href="/Etut/EtutSil/@item.etut_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Etut/EtutGuncelle?id=@item.etut_id" class="btn btn-success">Update</a></td>
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/Etut/EtutEkle" class="btn btn-primary">Etüt Ekle</a>
+

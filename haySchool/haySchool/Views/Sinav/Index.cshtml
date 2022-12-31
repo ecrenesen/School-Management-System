@@ -1,0 +1,57 @@
+﻿@model IEnumerable<haySchool.Models.Sinav>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+           @* <th>
+                ID
+            </th>*@
+            <th>
+                Ders ID
+            </th>
+            <th>
+                Sınıf ID
+            </th>
+            <th>
+                Tarih
+            </th>
+             <th>
+                Öğretmen 
+            </th>
+            <th>Details</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.sinav_id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.sinav_ders_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sinav_sinif_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sinav_date)
+            </td>
+            
+             <td>
+                @Html.DisplayFor(modelItem => item.sinav_ogretmen_adi)
+            </td>
+           <td><a href="/Sinav/SinavSil/@item.sinav_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Sinav/SinavGuncelle/@item.sinav_id" class="btn btn-success">Update</a></td>
+         
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/Sinav/SinavEkle" class="btn btn-primary">Yeni Sınav Oluştur</a>

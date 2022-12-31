@@ -1,0 +1,40 @@
+﻿@model haySchool.Models.Devamsizlik
+
+@{
+    ViewData["Title"] = "DevamsizlikEkle";
+}
+
+
+<hr />
+<div class="form-group">
+
+        <form asp-action="DevamsizlikEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+             Öğrenci ID
+            @Html.DropDownListFor(x=>x.devamsizlik_ogrenci_id, (List<SelectListItem>)ViewBag.v25,new{@class="form-control"})
+                <span asp-validation-for="devamsizlik_ogrenci_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Devamsızlık Sayısı
+                <input asp-for="devamsizlik_miktar" class="form-control" />
+                <span asp-validation-for="devamsizlik_miktar" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+             Tarih
+                <input asp-for="devamsizlik_tarih" class="form-control" />
+                <span asp-validation-for="devamsizlik_tarih" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

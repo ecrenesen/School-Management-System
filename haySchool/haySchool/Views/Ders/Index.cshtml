@@ -1,0 +1,43 @@
+﻿@model IEnumerable<haySchool.Models.Ders>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+         @*   <th>
+                Ders ID
+            </th>*@
+            <th>
+                Ders Adı
+            </th>
+             <th></th>
+            <th></th>
+            <th></th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          @*  <td>
+                @Html.DisplayFor(modelItem => item.ders_id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ders_adi)
+            </td>
+           <td><a href="/Ders/DersSil/@item.ders_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Ders/DersGuncelle?id=@item.ders_id" class="btn btn-success">Güncelle</a></td>
+             <td><a href="/Ogretmen/Index?id=@item.ders_id" class="btn btn-warning">Detaylar</a></td>
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/Ders/DersEkle" class="btn btn-primary">Ders Ekle</a>

@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+<style>
+    form i {
+        margin-left: -30px;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="container-fluid login-container p-0">
+    <div class="col-md-6 col-sm-6 col-lg-6" style="background-color:#2c3949;float: left;">
+        <div class="row justify-content-center " style="margin-top:25%; ">
+            <div class="p-4" style="align-items:center; width:100%; ">
+                <div class="text-center " style="justify-content:center; align-items:center;">
+                    <img src="~/Group 1.png" class="img-fluid " style="height:160px; width:auto;" />
+                    <p></p> <p></p>
+                    <h2 class="text-center " style="color: #eaffb7; font-size: xx-large; font-weight: bold; font-family:'Lucida Handwriting';  ">h a y S c h o o l </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-lg-6" style="background:#e6f1ff; float: left;">
+        <div class="row justify-content-center" style="height:100vh; align-items:center;">
+            <div class="login-group" style="width:50%; align-items:center;">
+                <div class="text-center"> <h1><label class="label" style="color:#2c3949;"><b> GİRİŞ</b></label></h1></div>
+                <form method="post">
+                    <div class="form-group">
+                        <div class="text-danger" asp-validation-summary="All"></div>
+                        <label style="color:gray; font-size: medium;">@*Kullanıcı Adı*@</label>
+                        <input name="username" class="form-control" style=" height: 50px; background-color: #ecf6e1;" placeholder="Kullanıcı adınızı giriniz." required>
+                    </div>
+                    <div class="form-group">
+
+
+                        <label style="color:gray; font-size: medium;">@*Şifre*@</label>
+                        <p class="d-flex">
+                            <input type="password" name="password" id="password" class="form-control" style=" height: 50px; background-color: #ecf6e1;" placeholder="Şifre giriniz." required>
+                            <i class="bi bi-eye-slash" id="togglePassword"></i>
+                        </p>
+                        <div class="">
+                            <div class="form-check form-check-inline" style="justify-content:space-between;">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                                <label class="form-check-label" style="color:black;" for="inlineCheckbox1">Beni Hatırla</label>
+                            </div>
+                            <div>
+                                
+                                <div class="form-check form-check-inline" style="justify-content:flex-start;">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" required="" value="option2">
+                                    <label class="form-check-label" style="color: gray;" data-toggle="modal" data-target="#exampleModalLong" id="e" for="inlineCheckbox1" required>
+                                        <a href="#modal fade bd-example-modal-lg" style="color:black">Veri Sözleşmesini Kabul Ediyorum</a>
+                                        
+
+                                    </label>
+                                   
+                                    <div class="invalid-feedback"> Göndermeden önce kabul etmelisiniz.</div>
+                                </div>
+                                <div class="modal fade bd-example-modal-lg" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">SÖZLEŞME</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                KİŞİSEL VERİLERİN KORUNMASI SÖZLEŞMESİ
+
+                                                TARAFLAR
+
+                                                İŞVEREN
+
+                                                ADI SOYADI/UNVANI
+
+                                                ADRESİ
+
+                                                Bundan böyle İŞVEREN olarak anılacak
+
+                                                Veri Sorumlusunun veya Temsilcisinin
+
+                                                ADI SOYADI/UNVANI
+
+                                                ADRESİ
+
+                                                İŞÇİ
+
+                                                ADI SOYADI
+
+                                                T.C. KİMLİK NO
+
+                                                ADRESİ
+
+                                                Bundan böyle İŞÇİ olarak anılacak
+
+                                                SÖZLEŞME KONUSU:
+
+                                                6698 Sayılı Kişisel Verilerin Korunması Hakkında Kanun gereğince verilerin otomatik ya da otomatik olmayan yollarla kaydedilmesi, işlenmesi, tasniflenmesi, açıklanması, aktarılması, anonim hale getirilmesi ve devredilmesidir.
+
+
+                                            </div>
+                                             
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">OKUDUM, ANLADIM</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                                 <p></p>
+                                  <label class="" style="float:right; "><a href="#"style="color: #2c3949;">Şifremi unuttum</a></label>
+                                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            ...
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <a href= "/Home/Index"  class="btn btn-primary"  type="submit" style=" background-color: #2c3949; color: #fff; width: 100px; border-style: none; float: left;">Giriş</a>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
+
+    togglePassword.addEventListener("click", function () {
+        // toggle the type attribute
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+
+        // toggle the icon
+        this.classList.toggle("bi-eye");
+    });
+
+
+</script>

@@ -1,0 +1,43 @@
+﻿@model haySchool.Models.Etut
+
+@{
+    ViewData["Title"] = "EtutEkle";
+}
+
+<hr />
+<div class="form-group">
+   
+        <form asp-action="EtutEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          @*  <div class="form-group">
+                Etüt ID
+                <input asp-for="etut_id" class="form-control" />
+                <span asp-validation-for="etut_id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+               Öğrenci ID
+                 @Html.DropDownListFor(x=>x.etut_ogrenci_id, (List<SelectListItem>)ViewBag.v8,new{@class="form-control"})
+                <span asp-validation-for="etut_ogrenci_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Ders ID
+                 @Html.DropDownListFor(x=>x.etut_ders_id, (List<SelectListItem>)ViewBag.v9,new{@class="form-control"})
+                <span asp-validation-for="etut_ders_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               Sınav ID
+                @Html.DropDownListFor(x=>x.etut_sinav_id, (List<SelectListItem>)ViewBag.v10,new{@class="form-control"})
+                <span asp-validation-for="etut_sinav_id" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+   
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

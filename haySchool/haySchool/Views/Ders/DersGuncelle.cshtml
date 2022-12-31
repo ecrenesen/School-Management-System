@@ -1,0 +1,34 @@
+﻿@model haySchool.Models.Ders
+
+@{
+    ViewData["Title"] = "DersGuncelle";
+}
+
+<hr />
+<div class="form-group">
+    
+        <form asp-action="DersGuncelle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Ders ID
+                <input asp-for="ders_id" class="form-control" />
+                <span asp-validation-for="ders_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Ders Adı
+
+                       <input asp-for="ders_adi" class="form-control" />
+                <span asp-validation-for="ders_adi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+   
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

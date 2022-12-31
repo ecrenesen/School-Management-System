@@ -1,0 +1,56 @@
+﻿@model IEnumerable<haySchool.Models.Ogretmen>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@*
+<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+    
+            <th>
+               Ders Adi
+            </th>
+            <th>
+                Öğretmen Adı
+            </th>
+            <th>
+                Öğretmen Soyadı
+            </th>
+            <th>
+                Öğretmen TelNo
+            </th>
+           <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+      
+            <td>
+                @Html.DisplayFor(modelItem => item.ogretmen_ders_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogretmen_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogretmen_soyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogretmen_telno)
+            </td>
+            
+           <td><a href="/Ogretmen/OgretmenSil/@item.ogretmen_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Ogretmen/OgretmenGuncelle/@item.ogretmen_id" class="btn btn-success">Update</a></td>
+
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/Ogretmen/OgretmenEkle" class="btn btn-primary">Yeni Öğretmen Ekle</a>
